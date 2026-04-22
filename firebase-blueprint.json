@@ -1,0 +1,23 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile identified by phone number.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "loginPassword": { "type": "string" },
+        "withdrawalPassword": { "type": "string", "description": "6-digit PIN" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "phoneNumber", "loginPassword", "withdrawalPassword", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Individual user document."
+    }
+  }
+}

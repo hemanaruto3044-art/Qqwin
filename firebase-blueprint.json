@@ -9,9 +9,10 @@
         "phoneNumber": { "type": "string" },
         "loginPassword": { "type": "string" },
         "withdrawalPassword": { "type": "string", "description": "6-digit PIN" },
+        "transactionPassword": { "type": "string", "description": "Complex alphanumeric password" },
         "createdAt": { "type": "string", "format": "date-time" }
       },
-      "required": ["uid", "phoneNumber", "loginPassword", "withdrawalPassword", "createdAt"]
+      "required": ["uid", "phoneNumber", "loginPassword", "withdrawalPassword", "transactionPassword", "createdAt"]
     }
   },
   "firestore": {

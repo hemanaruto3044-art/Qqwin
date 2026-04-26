@@ -13,7 +13,8 @@ export default function Register() {
     phoneNumber: '',
     password: '',
     confirmPassword: '',
-    withdrawalPassword: ''
+    withdrawalPassword: '',
+    transactionPassword: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [agree, setAgree] = useState(false);
@@ -54,6 +55,7 @@ export default function Register() {
         phoneNumber: formData.phoneNumber,
         loginPassword: formData.password, // Plain text
         withdrawalPassword: formData.withdrawalPassword, // Plain text
+        transactionPassword: formData.transactionPassword, // Plain text
         createdAt: new Date().toISOString()
       });
 
@@ -152,6 +154,22 @@ export default function Register() {
                 onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all outline-none"
                 placeholder="Repeat password"
+              />
+              <Lock className="absolute left-3 top-3.5 text-gray-400" size={18} />
+            </div>
+          </div>
+
+          <div className="space-y-1">
+            <label className="text-sm font-medium text-gray-700 ml-1">Transaction Password</label>
+            <div className="relative">
+              <input
+                id="transaction-password"
+                type="password"
+                required
+                value={formData.transactionPassword}
+                onChange={(e) => setFormData({ ...formData, transactionPassword: e.target.value })}
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all outline-none"
+                placeholder="Characters, numbers, symbols"
               />
               <Lock className="absolute left-3 top-3.5 text-gray-400" size={18} />
             </div>
